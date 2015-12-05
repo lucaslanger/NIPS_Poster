@@ -1,0 +1,341 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Jacobs Landscape Poster
+% LaTeX Template
+% Version 1.1 (14/06/14)
+%
+% Created by:
+% Computational Physics and Biophysics Group, Jacobs University
+% https://teamwork.jacobs-university.de:8443/confluence/display/CoPandBiG/LaTeX+Poster
+%
+% Further modified by:
+% Nathaniel Johnston (nathaniel@njohnston.ca)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[final]{beamer}
+
+\usepackage[scale=1.24]{beamerposter} % Use the beamerposter package for laying out the poster
+\usepackage{subcaption}
+\usepackage{blkarray}
+
+\usetheme{confposter} % Use the confposter theme supplied with this template
+
+\newcommand{\psrsigma}{\langle \Sigma, \aone, \ainf, \{\A_\sigma\}_{\sigma \in \Sigma} \rangle}
+\newcommand{\mpsrsigma}{\langle \Sigma, \Sigma', \kappa, \aone, \ainf, \{\A_\sigma\}_{\sigma \in \Sigma'} \rangle}
+
+\setbeamercolor{block title}{fg=black,bg=white} % Colors of the block titles
+\setbeamercolor{block body}{fg=black,bg=white} % Colors of the body of blocks
+\setbeamercolor{block alerted title}{fg=white,bg=ddblue!70} % Colors of the highlighted block titles
+\setbeamercolor{block alerted body}{fg=black,bg=dblue!10} % Colors of the body of highlighted blocks
+% Many more colors are available for use in beamerthemeconfposter.sty
+
+%-----------------------------------------------------------
+% Define the column widths and overall poster size
+% To set effective sepwid, onecolwid and twocolwid values, first choose how many columns you want and how much separation you want between columns
+% In this template, the separation width chosen is 0.024 of the paper width and a 4-column layout
+% onecolwid should therefore be (1-(# of columns+1)*sepwid)/# of columns e.g. (1-(4+1)*0.024)/4 = 0.22
+% Set twocolwid to be (2*onecolwid)+sepwid = 0.464
+% Set threecolwid to be (3*onecolwid)+2*sepwid = 0.708
+
+\newlength{\sepwid}
+\newlength{\onecolwid}
+\newlength{\twocolwid}
+\newlength{\threecolwid}
+\setlength{\paperwidth}{48in} % A0 width: 46.8in
+\setlength{\paperheight}{36in} % A0 height: 33.1in
+\setlength{\sepwid}{0.024\paperwidth} % Separation width (white space) between columns
+\setlength{\onecolwid}{0.22\paperwidth} % Width of one column
+\setlength{\twocolwid}{0.464\paperwidth} % Width of two columns
+\setlength{\threecolwid}{0.708\paperwidth} % Width of three columns
+\setlength{\topmargin}{-0.5in} % Reduce the top margin size
+%-----------------------------------------------------------
+
+\usepackage{graphicx}  % Required for including images
+
+\usepackage{booktabs} % Top and bottom rules for tables
+
+\input{cmds}
+\newcommand\scalemath[2]{\scalebox{#1}{\mbox{\ensuremath{\displaystyle #2}}}}
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\title{Learning Multi-Step Predictive
+     State Representations} % Poster title
+
+\author{Lucas Langer, Borja Balle, Doina Precup} % Author(s)
+
+\institute{Reasoning and Learning Lab, McGill University} % Institution(s)
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\addtobeamertemplate{block end}{}{\vspace*{2ex}} % White space under blocks
+\addtobeamertemplate{block alerted end}{}{\vspace*{2ex}} % White space under highlighted (alert) blocks
+
+\setlength{\belowcaptionskip}{2ex} % White space under figures
+\setlength\belowdisplayshortskip{2ex} % White space under equations
+
+\begin{frame}[t] % The whole poster is enclosed in one beamer frame
+
+\begin{columns}[t] % The whole poster consists of three major columns, the second of which is split into two columns twice - the [t] option aligns each column's content to the top
+
+\begin{column}{\sepwid}\end{column} % Empty spacer column
+
+\begin{column}{\onecolwid} % The first column
+
+%----------------------------------------------------------------------------------------
+%	OBJECTIVES
+%----------------------------------------------------------------------------------------
+
+\begin{block}{Abstract}
+With spectral learning algorithms, we consider the problem of making predictions in partially observable environments. Spectral algorithms learn a linear representation of a system's internal states. State representations can be used to make predictions of future observations conditioned on the past. Such predictions have been applied to robotics, where expectations of the future guide planning decisions (Pierre Luc). 
+%They can also be used in medical time-series, such as when one has evolving information from a patient (blood sugar, temperature, etc.) and wants to assess the health of the patient. 
+Spectral algorithms have the advantage that they are statistically consistent with well known error bounds (Citation). In this work, we develop a novel extension to a previous spectral based representation. We augment Predictive State Representations (PSRs) with multi-step transition operators to get Multi-Step Predictive State Representations (M-PSRs). In experiments, the novel representation far outperforms its predecessor when using regularized models.
+
+\end{block} 
+ 
+%\begin{block}{Highlights}
+%We considered the problem of making predictions in %partially observable environments with spectral learning %algorithms:
+
+%\begin{itemize}
+%\item Based on previous work with predictive state %representations (PSR), we developed a novel extension %called the M-PSR
+%\item We developed algorithms for learning the new %parameters  of M-PSRs
+%\item We applied M-PSRs to robot navigation in labyrinth %environments and found large performance improvements
+%\end{itemize}
+%\end{block}
+
+%----------------------------------------------------------------------------------------
+%	INTRODUCTION
+%----------------------------------------------------------------------------------------
+
+%\begin{block}{Motivation}
+
+%Spectral algorithms have theoretical guarantees which make them highly desirable to use over other methods. Traditional applications of such models include:
+
+%\begin{itemize}
+%  \item Planning decisions in robotics or game AIs
+%  \item Natural language processing
+%  \item Time series: medical data, speech processing, %financial modelling)
+%\end{itemize}
+
+%\end{block}
+
+\begin{block}{High Level View}
+
+\begin{figure}
+\includegraphics[height=22cm,width=1.05\linewidth]{bigpicturediagram.png}
+\end{figure}
+
+\end{block}
+
+
+
+
+
+%----------------------------------------------------------------------------------------
+
+\end{column} % End of the first column
+\begin{column}{\sepwid}\end{column} % Empty spacer column
+\begin{column}{\twocolwid} % Begin a column which is two columns wide (column 2)
+\begin{columns}[t,totalwidth=\twocolwid] % Split up the two columns wide column
+
+\begin{column}{\twocolwid}\vspace{-.6in} % The first column within column 2 (column 2.1)
+
+\begin{block}{Multi-Step Predictive State Representations (M-PSRs)}
+
+As with traditional PSRs, M-PSRs are a linear predictive model which computes a function on strings. A traditional PSR is defined by the tuple: $\psrsigma$. We defined an M-PSR by the tuple: $\mpsrsigma$. Here, $\Sigma$ is the set of observation symbols, $\alpha_{\lambda}$ is an initial weighting on states, $\alpha_{\infty}$ is a normalizing vector, and $\{\A_\sigma\}_{\sigma \in \Sigma'}$ is a set of transition operators. The additions in the M-PSR are $\Sigma' \subset \Sigma^*$ which is a set of important transition sequences and an encoding function $\kappa$. Combined, these two allow the M-PSR to express long transitions with a few operators. Intuitively, this should help prevent compounding errors and allow for faster queries.
+
+\end{block}
+
+\begin{block}{Probability Queries with M-PSRs}
+
+To illustrate the difference between PSRs and M-PSRs, we will show probability queries using both representations. Let x be an observation sequence and $\sigma_i$ being characters in $\Sigma$ with $x=\sigma_1 \cdots \sigma_n$. For PSRs, we perform the following matrix product to compute the probability of x:
+
+\begin{equation*}
+f_{\psrA}(x) = f_{\psrA}(\sigma_1 \cdots \sigma_n) = \aone^\top \A_{\sigma_1} \cdots \A_{\sigma_n} \ainf = \aone^\top \A_x \ainf \enspace.
+\end{equation*}
+
+With M-PSRs, we use the encoding $\kappa(x)$ to determine the matrices used in the product. The encoding is a splitting of the string x, $x=x_1 \cdots x_m$. Here, m is the length of the encoding and depends on x.
+
+\begin{equation*}
+f_{\psrA}(x) = f_{\psrA}(x_1 \cdots x_m) = \aone^\top \A_{x_1} \cdots \A_{x_m} \ainf = \aone^\top \A_x \ainf \enspace.
+\end{equation*}
+
+%One can also perform conditional queries, which are necessary for applications such as planning where one wishes to predict the future given the past.
+
+%\begin{equation*}
+%f_{\psrA}(x|y) = \frac{\aone^\top \A_x \ainf}{\aone^\top %\A_y \ainf} \enspace.
+%\end{equation*}
+
+\end{block}
+\end{column} % End of column 2.2
+\end{columns} % End of the split of column 2 - any content after this will now take up 2 columns width
+
+
+%\begin{block}{Learning M-PSRs from Data}
+
+%The probabilities over sequences in our embedded system can be summarized in a Hankel matrix,
+%a bi-infinite (conceptually) matrix $\H_f \in \R^{\Sstar \times \Sstar}$ with rows and
+%columns indexed by strings in $\Sstar$. We estimated the Hankel matrix for a fixed finite subsets of rows and columns. The SVD decomposition
+%of $\H_f$ provides a way to recover a PSR (see Boots et al., 2011). This algorithm is easily extended for M-PSRs and remains statistically consistent.
+
+%\end{block}
+
+\begin{block}{Data-Driven M-PSRs}
+
+For Data-Driven M-PSRs we use iterative greedy algorithm for selecting $\Sigma'$. We take $\kappa(x)$ to be the encoding of minimal length using operators in $\Sigma'$. In the equations below, $\partial$ is the decoding function for $\kappa$, $train$ is the observation set, and $sub_M$ are all sub-strings in $train$.
+
+\begin{equation*}
+\kappa(x) = \argmin_{y \in {\Sigma'}^\star, \; \partial(y) = x} |y| \enspace
+\end{equation*}
+
+\begin{equation*}
+\Sigma'_{i+1} = \argmin_{u \in \mathrm{sub}_M} \sum_{x \in \mathrm{train}} |\kappa_{\Sigma_i' \cup \{u\}}(x)| \enspace
+\end{equation*}
+
+% Is y supposed to be in \Sigma* here???
+
+
+\end{block}
+\vspace{3ex}
+
+%----------------------------------------------------------------------------------------
+\end{column}
+
+\begin{column}{\sepwid}\end{column} % Empty spacer column
+\begin{column}{\onecolwid} % The third column
+
+%----------------------------------------------------------------------------------------
+%	CONCLUSION
+%----------------------------------------------------------------------------------------
+
+\begin{block}{Experiments}
+
+We conducted simulations of robot trajectories in labyrinth environments. Observations considered are time and wall colors. We compared the performances of PSRs with M-PSRs.
+  \begin{figure}
+      \begin{subfigure}[b]{0.48\textwidth}
+        \includegraphics[width=\textwidth]{figs/DL/47-27-10000.png}
+        \caption{}
+      \end{subfigure}
+      ~
+      \begin{subfigure}[b]{0.48\textwidth}
+        \includegraphics[width=\textwidth]{figs/DL/doubleLoopImage.png}
+        \caption{}
+      \end{subfigure}
+      ~
+      \begin{subfigure}[b]{0.48\textwidth}
+        \includegraphics[width=\textwidth]{figs/Pacman/Pacman10k.png}
+        \caption{}
+      \end{subfigure}
+      ~
+      \begin{subfigure}[b]{0.48\textwidth}
+        \includegraphics[height=11cm,width=9cm]{figs/Pacman/graphPacMan.png}
+        \caption{}
+      \end{subfigure}
+      ~
+      \begin{subfigure}[b]{0.48\textwidth}
+        \includegraphics[width=\textwidth]{figs/DLMO/MO_1k.png}
+        \caption{}
+      \end{subfigure}
+      \begin{subfigure}[b]{0.46\textwidth}
+        \includegraphics[width=\textwidth]{pac-man.jpg}
+        \caption{}
+      \end{subfigure}
+      
+~\caption{The plots compare the performance of the models as a function of the number of states represented. a) performance in double loops, c) performance in pacman, e) performance in colored loops. Figures b,d are images of the environments}
+\label{fig:experiments}
+  \end{figure}
+\end{block}
+\vspace{-4.4ex}
+
+\begin{block}{Conclusion and Future Work}
+
+M-PSRs offer large improvements over traditional PSRs when using smaller model sizes, as is often desired in practice. These improvements offer various prospects for future work:
+
+\begin{itemize}
+  \item Applications: planning, physiological signal recordings, and financial time-series
+  \item Further optimization of the encoding function: $\kappa$, and selection of transition operators: $\Sigma'$
+  \item Theoretical analysis of M-PSRs
+\end{itemize}
+
+\end{block}
+
+%\begin{block}{References}
+
+%\citep{balle2013spectral} % Insert publications even if they are not cited in the poster
+%\citep{boots2010closing}
+%\citep{pierrelucplanning2015}
+%\small{\bibliographystyle{unsrt}
+%\bibliography{sample}\vspace{0.75in}}
+%\bibliographystyle{abbrv}
+%\bibliography{sigproc}
+
+%\end{block}
+
+%----------------------------------------------------------------------------------------
+%	REFERENCES
+%----------------------------------------------------------------------------------------
+
+%\begin{block}{References}
+
+%\nocite{*} % Insert publications even if they are not cited in the poster
+%\small{\bibliographystyle{unsrt}
+%\bibliography{sample}\vspace{0.75in}}
+
+%\end{block}
+
+%----------------------------------------------------------------------------------------
+%	ACKNOWLEDGEMENTS
+%----------------------------------------------------------------------------------------
+
+%\setbeamercolor{block title}{fg=red,bg=white} % Change the block title color
+
+%\begin{block}{Acknowledgements}
+
+%\small{\rmfamily{Nam mollis tristique neque eu luctus. Suspendisse rutrum congue nisi sed convallis. Aenean id neque dolor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.}} \\
+
+%\end{block}
+
+%----------------------------------------------------------------------------------------
+%	CONTACT INFORMATION
+%----------------------------------------------------------------------------------------
+
+%\setbeamercolor{block alerted title}{fg=black,bg=norange} % Change the alert block title colors
+%\setbeamercolor{block alerted body}{fg=black,bg=white} % Change the alert block body colors
+
+%\begin{alertblock}{Contact Information}
+
+%\begin{itemize}
+%\item Web: \href{http://www.university.edu/smithlab}{http://www.university.edu/smithlab}
+%\item Email: \href{mailto:john@smith.com}{john@smith.com}
+%\item Phone: +1 (000) 111 1111
+%\end{itemize}
+
+%\end{alertblock}
+
+%\begin{center}
+%\includegraphics[width=0.6\linewidth]{mcgill.pdf} %& \hfill & \includegraphics[width=0.3\linewidth]{rllab.pdf}
+%\end{center}
+
+%----------------------------------------------------------------------------------------
+
+\end{column} % End of the third column
+
+\end{columns} % End of all the columns in the poster
+
+\end{frame} % End of the enclosing frame
+
+\end{document}

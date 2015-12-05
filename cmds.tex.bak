@@ -1,0 +1,299 @@
+
+\newcommand{\dist}{\mathsf{dist}}
+%\newcommand{\mathbold}[1]{\boldsymbol{#1}}
+
+% Definition of oracles
+\newcommand{\oracle}[1]{\mathsf{#1}}
+\newcommand{\SQ}{\oracle{SQ}}
+\newcommand{\SQD}{\oracle{SQ}^D}
+\newcommand{\SQT}{\oracle{SQ}^T}
+\newcommand{\EX}{\oracle{EX}}
+\newcommand{\DIFF}{\oracle{DIFF}_\infty^D}
+\newcommand{\DIFFT}{\oracle{DIFF}_\infty^T}
+
+% Sets with name
+\newcommand{\sstar}{\Sigma^\star}
+\newcommand{\Sstar}{\sstar}
+%\renewcommand{\R}{\mathbb{R}}
+\newcommand{\R}{\mathbb{R}}
+
+% Definition of algorithms
+\newcommand{\algoname}[1]{\texttt{\upshape #1}}
+\newcommand{\CT}{\algoname{CT}}
+\newcommand{\CTS}{\algoname{CT}_{\SQ}}
+\newcommand{\CTLS}{\algoname{CT}_{\Linf,\SQ}}
+\newcommand{\Learner}{\algoname{L}}
+\newcommand{\adaptive}{\algoname{ParameterSearch}}
+\newcommand{\chgdet}{\algoname{ChangeDetector}}
+\newcommand{\basic}{\algoname{StreamLearner}}
+\newcommand{\sm}{\basic}
+\newcommand{\spsv}{\algoname{SpSv}}
+\newcommand{\prespsv}{\algoname{SpSv}^{\mathrm{p}}}
+\newcommand{\pss}{\prespsv}
+\newcommand{\stest}{\algoname{SIMILARITY-TEST}}
+\newcommand{\test}{\algoname{Test}}
+\newcommand{\estimate}{\algoname{Estimate}}
+\newcommand{\whileloop}{\algoname{while}}
+\newcommand{\sketch}{\algoname{Sketch}}
+\newcommand{\skinsert}{\algoname{Sketch.insert}}
+%\newcommand{\algo}{\mathsf{HMC\!+\!SM}}
+%\newcommand{\algopl}{\mathsf{HMC_{p,\ell}\!+\!SM}}
+\newcommand{\algo}{\texttt{HMC+SM}}
+\newcommand{\algopl}{\texttt{\upshape HMC}_{p,\ell}\texttt{\upshape +SM}}
+
+% Constants used in algorithms
+\newcommand{\requal}{\algoname{equal}}
+\newcommand{\rdistinct}{\algoname{distinct}}
+\newcommand{\rnotclear}{\algoname{not clear}}
+\newcommand{\runknown}{\algoname{unknown}}
+
+% Definition of constats
+\newcommand{\constantsym}[1]{\texttt{\upshape `#1'}}
+\newcommand{\QM}{\constantsym{?}}
+\newcommand{\Ms}{M_{\mathrm s}}
+\newcommand{\Ts}{T_{\mathrm s}}
+\newcommand{\Tt}{T_{\mathrm t}}
+\newcommand{\Nu}{N_{\mathrm u}}
+\newcommand{\Ne}{N_{\mathrm e}}
+\newcommand{\NExp}{N_{\mathrm E}}
+\newcommand{\Nd}{N_{\mathrm d}}
+\newcommand{\Nl}{N_{\mathrm l}}
+\newcommand{\Nt}{N_{\mathrm t}}
+\newcommand{\Nx}{N_{\mathrm x}}
+\newcommand{\Te}{T_{\mathrm e}}
+\newcommand{\Fs}{F_{\mathrm s}}
+\newcommand{\Fsc}{\bar{F}_{\mathrm s}}
+\newcommand{\Ft}{F_{\mathrm t}}
+\newcommand{\Fw}{F_{\mathrm w}}
+\newcommand{\Fwc}{\bar{F}_{\mathrm w}}
+\newcommand{\Us}{U_{\mathrm s}}
+\newcommand{\Ut}{U_{\mathrm t}}
+\newcommand{\Qf}{Q_{\mathrm f}}
+\newcommand{\Qfp}{Q'_{\mathrm f}}
+\newcommand{\epss}{\varepsilon_{\mathrm s}}
+\newcommand{\epst}{\varepsilon_{\mathrm t}}
+\newcommand{\epse}{\varepsilon_{\mathrm e}}
+\newcommand{\epsg}{\varepsilon_{\mathrm g}}
+\newcommand{\epsx}{\varepsilon_{\mathrm x}}
+
+% Definition of classes
+\newcommand{\fclass}[1]{\mathcal{#1}}
+\newcommand{\PDFA}{\fclass{PDFA}}
+\newcommand{\GPDFA}{\fclass{GPDFA}}
+\newcommand{\WFA}{\fclass{WFA}}
+%\newcommand{\qPDFA}{\widetilde{\fclass{PDFA}}}
+%\renewcommand{\lang}[1]{\mathcal{L}(#1)}
+\newcommand{\lang}[1]{\mathcal{L}(#1)}
+%\newcommand{\Exp}{\mathrm{Exp}}
+\newcommand{\Exp}{\operatorname{Exp}}
+
+% Definition of statistical operators
+\newcommand{\statistic}[1]{\mathbb{#1}}
+%\renewcommand{\E}{\statistic{E}}
+\newcommand{\E}{\statistic{E}}
+\newcommand{\Emp}{\hat{\statistic{E}}}
+\renewcommand{\P}{\statistic{P}}
+\newcommand{\V}{\statistic{V}}
+\newcommand{\Lik}{\statistic{L}}
+\newcommand{\LLik}{\statistic{LL}}
+
+% Definition of L distances
+%\newcommand{\Ldist}{\mathrm{L}}
+\newcommand{\Ldist}{\operatorname{L}}
+\newcommand{\Linf}{\Ldist_\infty}
+\newcommand{\evnt}[1]{\mathfrak{#1}}
+\newcommand{\eA}{\evnt{E}}
+\newcommand{\eB}{\evnt{X}}
+\newcommand{\LinfA}{\Ldist_\infty^{\eA}}
+\newcommand{\LinfAn}{\Ldist_\infty^{\eA_n}}
+\newcommand{\LinfB}{\Ldist_\infty^{\eB}}
+\newcommand{\Lone}{\Ldist_1}
+\newcommand{\Ltwo}{\Ldist_2}
+\newcommand{\prefLinf}{\Ldist_\infty^{\mathrm{p}}}
+%\newcommand{\KL}{\mathrm{KL}}
+\newcommand{\KL}{\operatorname{KL}}
+\newcommand{\scLinf}{\textsc{l}_{\scriptscriptstyle \infty}}
+%%% MAIN OR PRESS
+\newcommand{\scprefLinf}{\textsc{l}_\infty^{\normalfont\textrm{\bfseries\tiny{p}}}}
+%\newcommand{\scprefLinf}{\textsc{l}_{\scriptscriptstyle \mathbold{\infty}}^{\normalfont\textrm{\fontseries{b}\fontsize{4}{4}\selectfont p}}}
+
+% Definition of norms
+\newcommand{\norm}[1]{\|#1\|}
+\newcommand{\frob}[1]{\norm{#1}_F}
+\newcommand{\lone}[1]{\norm{#1}_1}
+\newcommand{\ltwo}[1]{\norm{#1}_2}
+\newcommand{\linf}[1]{\norm{#1}_\infty}
+\newcommand{\lp}[1]{\norm{#1}_p}
+\newcommand{\Lp}{\ell_p}
+
+% Definition of mathematical operators
+% Supremum
+\DeclareMathOperator{\supp}{supp}
+% Indicator function
+\newcommand{\one}{\mathbb{I}}
+% Longest common prefix
+\DeclareMathOperator{\lcp}{lcp}
+% Set of all prefixes
+\DeclareMathOperator{\pref}{pref}
+% Trace
+\DeclareMathOperator{\tr}{tr}
+% Vector
+\DeclareMathOperator{\matvec}{vec}
+%
+\DeclareMathOperator{\shr}{shr}
+
+% Definition of mathematical environments
+%\newtheoremstyle{theoremsc}%
+%{\topsep}%
+%{\topsep}%
+%{\itshape}%
+%{0pt}%
+%{\scshape\bfseries}%
+%{.}%
+%{5pt plus 1pt minus 1pt}%
+%{}
+%%\newtheoremstyle{plain}
+%%  {\topsep}   % ABOVESPACE
+%%  {\topsep}   % BELOWSPACE
+%%  {\itshape}  % BODYFONT
+%%  {0pt}       % INDENT (empty value is the same as 0pt)
+%%  {\bfseries} % HEADFONT
+%%  {.}         % HEADPUNCT
+%%  {5pt plus 1pt minus 1pt} % HEADSPACE
+%%  {}          % CUSTOM-HEAD-SPEC
+%\theoremstyle{theoremsc}
+%\newtheorem{theorem}{Theorem}
+%\newtheorem{lemma}[theorem]{Lemma}
+%\newtheorem{definition}[theorem]{Definition}
+%%\newtheorem{claim}[theorem]{Claim}
+%\newtheorem{corollary}[theorem]{Corollary}
+%\newtheorem{proposition}[theorem]{Proposition}
+%%\newtheorem{assumptions}{Assumption}{\bfseries}{\upshape}
+%\newtheorem{assumptions}{Assumption}
+%\newtheorem{assumption}{Assumption}
+%%\newtheorem{assumptions*}{Assumptions}
+%%\spnewtheorem*{assumptions*}{Assumptions}{\bfseries}{\upshape}
+%%\spnewtheorem{claim}{Claim}{\bfseries}{\upshape}
+%\theoremstyle{remark}
+%%\newtheorem{claim}[section]{Claim}
+%%\newtheorem{remark}[section]{Remark}
+%%\newtheorem{claim}{Claim}[chapter]
+%%\newtheorem{remark}{Remark}[chapter]
+
+% Marker for copy-and-paste text
+\newcommand{\copytext}{\noindent \rule{\textwidth}{1pt}\\ \texttt{COPY COPY COPY COPY COPY COPY COPY COPY COPY COPY COPY COPY}\\ \rule{\textwidth}{1pt}\\} 
+
+% Imported directly from NIPS12
+\newcommand{\Rset}{\mathbb{R}}
+\newcommand{\Nset}{\mathbb{N}}
+\newcommand{\Hset}{\mathbb{H}}
+
+\DeclareMathOperator*{\argmax}{\rm argmax}
+\DeclareMathOperator*{\argmin}{\rm argmin}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\sign}{sign}
+\DeclareMathOperator{\range}{range}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\local}{local}
+\DeclareMathOperator{\Tr}{Tr}
+\providecommand{\frobp}[2]{\langle#1, #2\rangle_F}
+
+\newcommand{\set}[1]{\{#1\}}
+\newcommand{\iprod}[2]{\left\langle #1 , #2 \right\rangle}
+%%% MAIN OR PRESS
+\newcommand{\mat}[1]{\mathbf{#1}}
+%\newcommand{\mat}[1]{\mathbold{#1}}
+\newcommand{\A}{\mat{A}}
+\newcommand{\B}{\mat{B}}
+\newcommand{\M}{\mat{M}}
+\renewcommand{\H}{\mat{H}}
+
+\newcommand{\h}{\hat}
+\newcommand{\tl}{\tilde}
+\newcommand{\Bs}{\mathcal{B}}
+\newcommand{\cB}{\Bs}
+%\newcommand{\cD}{\mathcal{D}}
+\newcommand{\cD}{D}
+\newcommand{\Ps}{\mathcal{P}}
+\newcommand{\Ss}{\mathcal{S}}
+\newcommand{\cW}{\mathcal{W}}
+\newcommand{\Vsv}{\mat{V}}
+
+\newcommand{\RempSt}{\hat{R}_{\tilde{S}}}
+\newcommand{\RempStp}{\hat{R}_{\tilde{S}'}}
+\newcommand{\RempS}{\hat{R}_{S}}
+\newcommand{\hrt}{\mat{h}_{\lambda,\Ss}^\top}
+\newcommand{\hr}{\mat{h}_{\lambda,\Ss}}
+\newcommand{\hc}{\mat{h}_{\Ps,\lambda}}
+\newcommand{\hhrt}{\hat{\mat{h}}_{\lambda,\Ss}^\top}
+\newcommand{\hhr}{\hat{\mat{h}}_{\lambda,\Ss}}
+\newcommand{\hhc}{\hat{\mat{h}}_{\Ps,\lambda}}
+
+%%% MAIN OR PRESS
+\newcommand{\pivec}{\boldsymbol{\pi}}
+\newcommand{\alphavec}{\boldsymbol{\alpha}}
+\newcommand{\thetavec}{\boldsymbol{\theta}}
+\newcommand{\vectheta}{\thetavec}
+\newcommand{\vecalpha}{\alphavec}
+\newcommand{\rhovec}{\boldsymbol{\rho}}
+\newcommand{\vecrho}{\rhovec}
+\newcommand{\aone}{\boldsymbol{\alpha}_\lambda}
+%\newcommand{\aone}{\boldsymbol{\alpha}_0}
+\newcommand{\ainf}{\boldsymbol{\alpha}_{\infty}}
+\newcommand{\taone}{\tilde{\boldsymbol{\alpha}}_0}
+\newcommand{\tainf}{\tilde{\boldsymbol{\alpha}}_{\infty}}
+\newcommand{\haone}{\hat{\boldsymbol{\alpha}}_0}
+\newcommand{\hainf}{\hat{\boldsymbol{\alpha}}_{\infty}}
+\newcommand{\bone}{\boldsymbol{\beta}_0}
+\newcommand{\binf}{\boldsymbol{\beta}_{\infty}}
+\newcommand{\vecb}{\boldsymbol{\beta}}
+\newcommand{\tbone}{\tilde{\boldsymbol{\beta}}_0}
+\newcommand{\tbinf}{\tilde{\boldsymbol{\beta}}_{\infty}}
+\newcommand{\hbone}{\hat{\boldsymbol{\beta}}_0}
+\newcommand{\hbinf}{\hat{\boldsymbol{\beta}}_{\infty}}
+%\newcommand{\aone}{\mathbold{\alpha}_0}
+%\newcommand{\ainf}{\mathbold{\alpha}_{\infty}}
+%\newcommand{\taone}{\tilde{\mathbold{\alpha}}_0}
+%\newcommand{\tainf}{\tilde{\mathbold{\alpha}}_{\infty}}
+%\newcommand{\haone}{\hat{\mathbold{\alpha}}_0}
+%\newcommand{\hainf}{\hat{\mathbold{\alpha}}_{\infty}}
+%\newcommand{\bone}{\mathbold{\beta}_0}
+%\newcommand{\binf}{\mathbold{\beta}_{\infty}}
+%\newcommand{\tbone}{\tilde{\mathbold{\beta}}_0}
+%\newcommand{\tbinf}{\tilde{\mathbold{\beta}}_{\infty}}
+%\newcommand{\hbone}{\hat{\mathbold{\beta}}_0}
+%\newcommand{\hbinf}{\hat{\mathbold{\beta}}_{\infty}}
+
+\newcommand{\Alpha}{\aone}
+\newcommand{\Beta}{\ainf}
+\newcommand{\psrA}{\mathcal{A}}
+\newcommand{\wa}{\langle  \aone, \ainf, \{\A_\sigma\} \rangle}
+\newcommand{\wasigma}{\langle  \aone, \ainf, \{\A_\sigma\}_{\sigma \in \Sigma} \rangle}
+\newcommand{\wb}{\langle  \bone, \binf, \{\B_\sigma\} \rangle}
+\newcommand{\wap}{\langle  \aone', \ainf', \{\A'_\sigma\} \rangle}
+\newcommand{\wbp}{\langle  \bone', \binf', \{\B'_\sigma\} \rangle}
+\newcommand{\wat}{\langle  \taone, \tainf, \{\tilde{\A}_\sigma\} \rangle}
+\newcommand{\wtt}{\langle  \taone, \tainf, \{\tilde{\A}_\sigma^\delta\} \rangle}
+\newcommand{\wt}{\langle  \aone, \ainf, \{{\A}_\sigma^\delta\} \rangle}
+\newcommand{\wbt}{\langle  \tbone, \tbinf, \{\tilde{\B}_\sigma\} \rangle}
+\newcommand{\wah}{\langle  \haone, \hainf, \{\hat{\A}_\sigma\} \rangle}
+\newcommand{\wbh}{\langle  \hbone, \hbinf, \{\hat{\B}_\sigma\} \rangle}
+\newcommand{\mdp}{\langle  S, A, P, R \rangle}
+\newcommand{\mdpoptomega}{\langle  I_\omega, \pi_\omega, \beta_\omega \rangle}
+\newcommand{\mdpopt}{\langle  I, \pi, \beta \rangle}
+\newcommand{\optmodS}{\langle  \vecalpha, \mat{1}, \{\A_\sigma\}_{\sigma \in \Sigma} \rangle}
+\newcommand{\optmod}{\langle  \vecalpha, \mat{1}, \{\A_\sigma\} \rangle}
+
+\newcommand{\erho}{\epsilon_\rho}
+\newcommand{\eP}{\epsilon_P}
+\newcommand{\sO}{\sigma_O}
+\newcommand{\sP}{\sigma_P}
+\newcommand{\sval}{\mathfrak{s}}
+
+\newcommand{\loss}{\ell}
+\newcommand{\cvloss}{\tilde{\ell}}
+
+% From ICML12
+\newcommand{\U}{\mathcal{U}}
+\newcommand{\spn}{\operatorname{span}}
