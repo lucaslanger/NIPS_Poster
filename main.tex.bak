@@ -101,9 +101,9 @@
 %----------------------------------------------------------------------------------------
 
 \begin{block}{Abstract}
-With spectral learning algorithms, we consider the problem of making predictions in partially observable environments. Spectral algorithms learn a linear representation of a system's internal states. State representations can be used to make predictions of future observations conditioned on the past. Such predictions have been applied to robotics, where expectations of the future guide planning decisions (Pierre Luc). 
+With spectral learning algorithms, we consider the problem of making predictions in partially observable environments. Spectral algorithms learn a linear representation of a system's internal states and can be used to make predictions of future observations conditioned on the past. Such predictions have been applied to robotics, where expectations of the future guide planning decisions (Pierre Luc). 
 %They can also be used in medical time-series, such as when one has evolving information from a patient (blood sugar, temperature, etc.) and wants to assess the health of the patient. 
-Spectral algorithms have the advantage that they are statistically consistent with well known error bounds (Citation). In this work, we develop a novel extension to a previous spectral based representation. We augment Predictive State Representations (PSRs) with multi-step transition operators to get Multi-Step Predictive State Representations (M-PSRs). In experiments, the novel representation far outperforms its predecessor for regularized models.
+Spectral algorithms have the advantage that they are statistically consistent with well known error bounds (Citation). In this work, we develop a novel extension to a previous spectral based representation. We augment Predictive State Representations (PSRs) with multi-step transition operators to get Multi-Step Predictive State Representations (M-PSRs). In experiments, the novel representation far outperforms its predecessor when using regularized models.
 
 \end{block} 
  
@@ -133,10 +133,10 @@ Spectral algorithms have the advantage that they are statistically consistent wi
 
 %\end{block}
 
-\begin{block}{High Level View}
+\begin{block}{Overview}
 
 \begin{figure}
-\includegraphics[height=22cm,width=1.05\linewidth]{bigpicturediagram.png}
+\includegraphics[height=33cm,width=1.00\linewidth]{M-PSR_Flow_Chart.pdf}
 \end{figure}
 
 \end{block}
@@ -156,22 +156,36 @@ Spectral algorithms have the advantage that they are statistically consistent wi
 
 \begin{block}{Multi-Step Predictive State Representations (M-PSRs)}
 
-As with traditional PSRs, M-PSRs are a linear predictive model which computes a function on strings. A traditional PSR is defined by the tuple: $\psrsigma$. We defined an M-PSR by the tuple: $\mpsrsigma$. Here, $\Sigma$ is the set of observation symbols, $\alpha_{\lambda}$ is an initial weighting on states, $\alpha_{\infty}$ is a normalizing vector, and $\{\A_\sigma\}_{\sigma \in \Sigma'}$ is a set of transition operators. The additions in the M-PSR are $\Sigma' \subset \Sigma^*$ which is a set of important transition sequences and an encoding function $\kappa$. Combined, these two allow the M-PSR to express long transitions with a few operators. Intuitively, this should help prevent compounding errors and allow for faster queries.
+As with traditional PSRs, M-PSRs compute a probability function  on observation strings $f_A: \Sigma^{*} \mapsto [0,1]$. 
+A traditional PSR is defined by the tuple: $\psrsigma$, where $\Sigma$ is the set of observations, $\alpha_{\lambda}$ is an initial weighting on states, $\alpha_{\infty}$ is a normalizing vector, and $\{\A_\sigma\}_{\sigma \in \Sigma}$ is a set of transition operators.
+%We define an M-PSR by the tuple: $\mpsrsigma$. 
+%The goal of the
+An M-PSR expresses transitions more compactly
+%. This is accomplished 
+by including operators which represent sequences of observations: $\Sigma' \subset \Sigma^*$
+%.   With additional operators, it becomes necessary to specify
+and a way of partitioning strings
+%. For an M-PSR, we call this it's 
+which we call an encoding function $\kappa$.
 
 \end{block}
 
-\begin{block}{Probability Queries with M-PSRs}
+\begin{block}{Probability Queries}
 
-To illustrate the difference between PSRs and M-PSRs, we will show probability queries using both representations. Let x be an observation sequence and $\sigma_i$ being characters in $\Sigma$ with $x=\sigma_1 \cdots \sigma_n$. For PSRs, we perform the following matrix product to compute the probability of x:
+%To illustrate the difference between PSRs and M-PSRs, we will show probability queries using both representations. 
+With traditional PSRs, transition operators are applied for each observation $\sigma_i$ in $x=\sigma_1 \cdots \sigma_n$.
 
 \begin{equation*}
-f_{\psrA}(x) = f_{\psrA}(\sigma_1 \cdots \sigma_n) = \aone^\top \A_{\sigma_1} \cdots \A_{\sigma_n} \ainf = \aone^\top \A_x \ainf \enspace.
+f_{\psrA}(x) ~=~ f_{\psrA}(\sigma_1 \cdots \sigma_n) ~=~ \aone^\top \A_{\sigma_1} \cdots \A_{\sigma_n} \ainf ~=~ \aone^\top \A_x \ainf \enspace.
 \end{equation*}
 
-With M-PSRs, we use the encoding $\kappa(x)$ to determine the matrices used in the product. The encoding is a splitting of the string x, $x=x_1 \cdots x_m$. Here, m is the length of the encoding and depends on x.
+
+For M-PSRs, we apply multi-step transition operators for each observation sequence $s_i$ in $\kappa(x)=s_1 \cdots s_m$
+
+%Here, m is the length of the encoding and depends on x.
 
 \begin{equation*}
-f_{\psrA}(x) = f_{\psrA}(x_1 \cdots x_m) = \aone^\top \A_{x_1} \cdots \A_{x_m} \ainf = \aone^\top \A_x \ainf \enspace.
+f_{\psrA}(x) ~=~ f_{\psrA}(s_1 \cdots s_m) ~=~ \aone^\top \A_{s_1} \cdots \A_{s_m} \ainf ~=~ \aone^\top \A_x \ainf \enspace.
 \end{equation*}
 
 %One can also perform conditional queries, which are necessary for applications such as planning where one wishes to predict the future given the past.
@@ -194,22 +208,45 @@ f_{\psrA}(x) = f_{\psrA}(x_1 \cdots x_m) = \aone^\top \A_{x_1} \cdots \A_{x_m} \
 
 %\end{block}
 
-\begin{block}{Data-Driven M-PSRs}
+\begin{block}{Base M-PSRs}
 
-For Data-Driven M-PSRs we use iterative greedy algorithm for selecting $\Sigma'$. We take $\kappa(x)$ to be the encoding of minimal length using operators in $\Sigma'$. In the equations below, $\partial$ is the decoding function for $\kappa$, $train$ is the observation set, and $sub_M$ are all sub-strings in $train$.
+As an example, a natural approach to build an M-PSR for timing $\Sigma=\{\sigma\}$, is to use powers of a fixed base $b$:
 
 \begin{equation*}
-\kappa(x) = \argmin_{y \in {\Sigma'}^\star, \; \partial(y) = x} |y| \enspace
+\Sigma' ~=~ \{\sigma,~\sigma^b,~ \sigma^{b^2},\ldots, \sigma^{b^K}\}
 \end{equation*}
 
+For given observation string: $\sigma^t$, we compute $t = t_0 b^0 + t_1 b^1 + t_2 b^2 + \cdots + t_K b^K$ and then the encoding follows:
+
 \begin{equation*}
-\Sigma'_{i+1} = \argmin_{u \in \mathrm{sub}_M} \sum_{x \in \mathrm{train}} |\kappa_{\Sigma_i' \cup \{u\}}(x)| \enspace
+\kappa(\sigma^t) ~=~ (\sigma^{b^K})^{t_K}~ (\sigma^{b^{K-1}})^{t_{K-1}} \cdots (\sigma^b)^{t_1}~ (\sigma)^{t_0}
+\end{equation*}
+
+%, where $0 \leq t_k \leq b - 1$ for $0 \leq k \leq K$, and $t_K \geq 0$
+
+\end{block}
+
+\begin{block}{Data-Driven M-PSRs}
+
+%Experiments indicate that compact representations of transitions yield better predictions.
+
+For a general M-PSR we propose that $\kappa(x)$ be the encoding of minimal length. $\kappa(x)$ is computed by dynamic programming, giving the additional benefit that one can perform optimal state updates for online applications. 
+
+\begin{equation*}
+\kappa(x) ~= \argmin_{ z \in \Sigma^*, \; x=yz, \; |y|<|x|} |~\kappa(y)(z)| \enspace 
+\end{equation*}
+
+With this choice of $\kappa$, we build $\Sigma'$ by iteratively selecting sub-strings from the training set:
+
+\begin{equation*}
+\Sigma'_{i+1} ~=~ \argmin_{u \in \mathrm{sub}_M} ~\sum_{x \in \mathrm{train}} |\kappa_{\Sigma_i' \cup \{u\}}(x)| \enspace
 \end{equation*}
 
 % Is y supposed to be in \Sigma* here???
-
+%Above, $\partial$ is the decoding function for $\kappa$
 
 \end{block}
+
 \vspace{3ex}
 
 %----------------------------------------------------------------------------------------
@@ -224,51 +261,45 @@ For Data-Driven M-PSRs we use iterative greedy algorithm for selecting $\Sigma'$
 
 \begin{block}{Experiments}
 
-We conducted simulations of robot trajectories in labyrinth environments. Observations considered are time and wall colors. We compared the performances of PSRs with M-PSRs.
+We simulated robot trajectories in labyrinth environments. Observations are time and wall colors. 
+
+  \vspace{-2cm}
   \begin{figure}
-      \begin{subfigure}[b]{0.48\textwidth}
-        \includegraphics[width=\textwidth]{figs/DL/47-27-10000.png}
-        \caption{}
-      \end{subfigure}
-      ~
-      \begin{subfigure}[b]{0.48\textwidth}
-        \includegraphics[width=\textwidth]{figs/DL/doubleLoopImage.png}
-        \caption{}
-      \end{subfigure}
-      ~
-      \begin{subfigure}[b]{0.48\textwidth}
+      \begin{subfigure}{1.1\textwidth}
         \includegraphics[width=\textwidth]{figs/Pacman/Pacman10k.png}
-        \caption{}
       \end{subfigure}
       ~
-      \begin{subfigure}[b]{0.48\textwidth}
-        \includegraphics[height=11cm,width=9cm]{figs/Pacman/graphPacMan.png}
-        \caption{}
-      \end{subfigure}
-      ~
-      \begin{subfigure}[b]{0.48\textwidth}
+      \begin{subfigure}{1.1\textwidth}
         \includegraphics[width=\textwidth]{figs/DLMO/MO_1k.png}
-        \caption{}
       \end{subfigure}
-      \begin{subfigure}[b]{0.46\textwidth}
-        \includegraphics[width=\textwidth]{pac-man.jpg}
-        \caption{}
-      \end{subfigure}
+      ~
+      %\begin{subfigure}[b]{0.48\textwidth}
+      %  \includegraphics[width=\textwidth]%{figs/DL/doubleLoopImage.png}
+        %\caption{}
+      %\end{subfigure}
+      %~
+      %\begin{subfigure}[b]{0.48\textwidth}
+      %  \includegraphics[width=\textwidth]{pac-man.jpg}
+      %  \caption{}
+      %\end{subfigure}
+       %~
+      %\begin{subfigure}[b]{0.33\textwidth}
+        %\includegraphics[height=11cm,width=9cm{figs/Pacman/graphPacMan.png}
+        %\caption{}
+      %\end{subfigure}
       
-~\caption{The plots compare the performance of the models as a function of the number of states represented. a) performance in double loops, c) performance in pacman, e) performance in colored loops. Figures b,d are images of the environments}
-\label{fig:experiments}
   \end{figure}
 \end{block}
 \vspace{-4.4ex}
 
-\begin{block}{Conclusion and Future Work}
+\begin{block}{Conclusion}
 
 M-PSRs offer large improvements over traditional PSRs when using smaller model sizes, as is often desired in practice. These improvements offer various prospects for future work:
 
 \begin{itemize}
   \item Applications: planning, physiological signal recordings, and financial time-series
-  \item Theoretical analysis of the M-PSR for smaller models
-  \item Further optimization of the encoding function and selection of transition sequences
+  \item Further optimization of the encoding function: $\kappa$, and selection of transition operators: $\Sigma'$
+  \item Theoretical analysis of M-PSRs
 \end{itemize}
 
 \end{block}
