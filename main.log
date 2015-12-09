@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.1.29)  7 DEC 2015 21:47
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.1.29)  8 DEC 2015 21:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1220,7 +1220,7 @@ File: mcgill.pdf Graphic file (type pdf)
  <use mcgill.pdf>
 Package pdftex.def Info: mcgill.pdf used on input line 83.
 (pdftex.def)             Requested size: 498.55737pt x 116.87512pt.
-LaTeX Font Info:    Try loading font information for T1+lmr on input line 370.
+LaTeX Font Info:    Try loading font information for T1+lmr on input line 375.
 
 (/usr/share/texmf/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
@@ -1229,57 +1229,85 @@ File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 File: M-PSR_Flow_Chart.pdf Graphic file (type pdf)
 
 <use M-PSR_Flow_Chart.pdf>
-Package pdftex.def Info: M-PSR_Flow_Chart.pdf used on input line 370.
+Package pdftex.def Info: M-PSR_Flow_Chart.pdf used on input line 375.
 (pdftex.def)             Requested size: 763.20357pt x 938.9779pt.
-LaTeX Font Info:    Calculating math sizes for size <37.03> on input line 370.
+LaTeX Font Info:    Calculating math sizes for size <37.03> on input line 375.
 
 
 LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <37.03> not available
-(Font)              size <24.88> substituted on input line 370.
+(Font)              size <24.88> substituted on input line 375.
 
 
 LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <25.92088> not available
-(Font)              size <24.88> substituted on input line 370.
+(Font)              size <24.88> substituted on input line 375.
 
 
 LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <18.515> not available
-(Font)              size <17.28> substituted on input line 370.
+(Font)              size <17.28> substituted on input line 375.
 
-<figs/Pacman/Pacman10k.png, id=15, 578.16pt x 433.62pt>
+LaTeX Font Info:    Calculating math sizes for size <44.43> on input line 375.
+
+LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <44.43> not available
+(Font)              size <24.88> substituted on input line 375.
+
+
+LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <31.10085> not available
+(Font)              size <24.88> substituted on input line 375.
+
+
+LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <22.215> not available
+(Font)              size <20.74> substituted on input line 375.
+
+<figs/Pacman/Pacman10k.png, id=15, 602.25pt x 451.6875pt>
 File: figs/Pacman/Pacman10k.png Graphic file (type png)
 
 <use figs/Pacman/Pacman10k.png>
-Package pdftex.def Info: figs/Pacman/Pacman10k.png used on input line 370.
-(pdftex.def)             Requested size: 839.49762pt x 629.65921pt.
+Package pdftex.def Info: figs/Pacman/Pacman10k.png used on input line 375.
+(pdftex.def)             Requested size: 839.49762pt x 629.684pt.
 
-<figs/DLMO/MO_1k.png, id=17, 578.16pt x 433.62pt>
-File: figs/DLMO/MO_1k.png Graphic file (type png)
- <use figs/DLMO/MO_1k.png>
-Package pdftex.def Info: figs/DLMO/MO_1k.png used on input line 370.
-(pdftex.def)             Requested size: 839.49762pt x 629.65921pt.
 
-Overfull \hbox (76.32219pt too wide) in paragraph at lines 370--370
+LaTeX Warning: File `figs/DLMO/MO_1k.png' not found on input line 375.
+
+
+! Package pdftex.def Error: File `figs/DLMO/MO_1k.png' not found.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.375 \end{frame}
+                  % End of the enclosing frame
+Using draft setting for this image.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 375.
+
+(/usr/share/texmf/tex/latex/lm/t1lmtt.fd
+File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+Overfull \hbox (76.32219pt too wide) in paragraph at lines 375--375
  []$ 
  []
 
 
-Overfull \hbox (76.32219pt too wide) in paragraph at lines 370--370
+Overfull \hbox (76.32219pt too wide) in paragraph at lines 375--375
  []$ 
  []
 
-LaTeX Font Info:    Try loading font information for TS1+lmss on input line 370
+LaTeX Font Info:    Try loading font information for TS1+lmss on input line 375
 .
 (/usr/share/texmf/tex/latex/lm/ts1lmss.fd
 File: ts1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-Overfull \hbox (4.99402pt too wide) detected at line 370
+Overfull \hbox (4.99402pt too wide) detected at line 375
 [][][] [][][][][][][][][] [][][][][][][][][] [][][][][][][][][] [][][][][][][][
 ][] [][][][][][][][][] [][][][][][][] 
  []
 
 File: mcgill.pdf Graphic file (type pdf)
 <use mcgill.pdf>
-Package pdftex.def Info: mcgill.pdf used on input line 370.
+Package pdftex.def Info: mcgill.pdf used on input line 375.
 (pdftex.def)             Requested size: 498.55737pt x 116.87512pt.
 
 Overfull \hbox (88.20334pt too wide) has occurred while \output is active
@@ -1292,7 +1320,7 @@ Overfull \hbox (88.20334pt too wide) has occurred while \output is active
 
 pdfTeX warning: pdflatex (file ./M-PSR_Flow_Chart.pdf): PDF inclusion: multiple
  pdfs with page group included in a single page
-> <./figs/Pacman/Pacman10k.png> <./figs/DLMO/MO_1k.png>]
+> <./figs/Pacman/Pacman10k.png>]
 \tf@nav=\write6
 \openout6 = `main.nav'.
 
@@ -1302,41 +1330,42 @@ pdfTeX warning: pdflatex (file ./M-PSR_Flow_Chart.pdf): PDF inclusion: multiple
 \tf@snm=\write8
 \openout8 = `main.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 372.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 372.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 377.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 377.
  (./main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 372.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 372.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 377.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 377.
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 
 
 LaTeX Font Warning: Size substitutions with differences
-(Font)              up to 12.15pt have occurred.
+(Font)              up to 19.54999pt have occurred.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 372.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 377.
  ) 
 Here is how much of TeX's memory you used:
- 21473 strings out of 493304
- 393910 string characters out of 6139871
- 532024 words of memory out of 5000000
- 24383 multiletter control sequences out of 15000+600000
- 81424 words of font info for 75 fonts, out of 8000000 for 9000
+ 21538 strings out of 493304
+ 394949 string characters out of 6139871
+ 532498 words of memory out of 5000000
+ 24444 multiletter control sequences out of 15000+600000
+ 104877 words of font info for 101 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  59i,18n,94p,470b,1396s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/share/texmf/fonts/enc/d
-vips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/shar
-e/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/enc/dvips/lm/l
-m-ec.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.p
+vips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/te
+xmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-ma
+thsy.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.p
 fb></usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/t
 ype1/public/lm/lmmi12.pfb></usr/share/texmf/fonts/type1/public/lm/lmmib10.pfb><
 /usr/share/texmf/fonts/type1/public/lm/lmr17.pfb></usr/share/texmf/fonts/type1/
 public/lm/lmss17.pfb></usr/share/texmf/fonts/type1/public/lm/lmssbx10.pfb></usr
-/share/texmf/fonts/type1/public/lm/lmsy10.pfb>
-Output written on main.pdf (1 page, 339567 bytes).
+/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/pub
+lic/lm/lmtt12.pfb>
+Output written on main.pdf (1 page, 239902 bytes).
 PDF statistics:
- 112 PDF objects out of 1000 (max. 8388607)
- 78 compressed objects within 1 object stream
+ 100 PDF objects out of 1000 (max. 8388607)
+ 71 compressed objects within 1 object stream
  3 named destinations out of 1000 (max. 500000)
- 63 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 58 words of extra memory for PDF output out of 10000 (max. 10000000)
 

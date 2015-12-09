@@ -101,7 +101,7 @@
 %----------------------------------------------------------------------------------------
 
 \begin{block}{Abstract}
-With spectral learning algorithms, we consider the problem of making predictions in partially observable environments. Spectral algorithms learn a linear representation of a system's internal states and can be used to make predictions of future observations conditioned on the past. Such predictions have been applied to robotics, where expectations of the future guide planning decisions (Pierre Luc). 
+With spectral learning algorithms, we consider the problem of making predictions in partially observable environments. Spectral algorithms learn a linear representation of a system's internal states and can be used to make predictions of future observations conditioned on the past (Boots et al., 2011). Such predictions have been applied to robotics, where expectations of the future guide planning decisions (Bacon et al., 2015). 
 %They can also be used in medical time-series, such as when one has evolving information from a patient (blood sugar, temperature, etc.) and wants to assess the health of the patient. 
 Spectral algorithms have the advantage that they are statistically consistent with well known error bounds (Citation). In this work, we develop a novel extension to a previous spectral based representation. We augment Predictive State Representations (PSRs) with multi-step transition operators to get Multi-Step Predictive State Representations (M-PSRs). In experiments, the novel representation far outperforms its predecessor when using regularized models.
 
@@ -175,25 +175,23 @@ which we call an encoding function $\kappa$.
 %To illustrate the difference between PSRs and M-PSRs, we will show probability queries using both representations. 
 With traditional PSRs, transition operators are applied for each observation $\sigma_i$ in $x=\sigma_1 \cdots \sigma_n$.
 
+{\large
 \begin{equation*}
-f_{\psrA}(x) ~=~ f_{\psrA}(\sigma_1 \cdots \sigma_n) ~=~ \aone^\top \A_{\sigma_1} \cdots \A_{\sigma_n} \ainf ~=~ \aone^\top \A_x \ainf \enspace.
+f_{\psrA}(x) ~=~ f_{\psrA}(\sigma_1 \cdots \sigma_n) ~=~ \aone^\top \A_{\sigma_1} \cdots \A_{\sigma_n} \ainf \enspace
 \end{equation*}
-
+}
+\vspace{-1.5cm}
 
 For M-PSRs, we apply multi-step transition operators for each observation sequence $s_i$ in $\kappa(x)=s_1 \cdots s_m$
 
 %Here, m is the length of the encoding and depends on x.
 
+{\large
 \begin{equation*}
-f_{\psrA}(x) ~=~ f_{\psrA}(s_1 \cdots s_m) ~=~ \aone^\top \A_{s_1} \cdots \A_{s_m} \ainf ~=~ \aone^\top \A_x \ainf \enspace.
+f_{\psrA}(x) ~=~ f_{\psrA}(s_1 \cdots s_m) ~=~ \aone^\top \A_{s_1} \cdots \A_{s_m} \ainf \enspace
 \end{equation*}
-
-%One can also perform conditional queries, which are necessary for applications such as planning where one wishes to predict the future given the past.
-
-%\begin{equation*}
-%f_{\psrA}(x|y) = \frac{\aone^\top \A_x \ainf}{\aone^\top %\A_y \ainf} \enspace.
-%\end{equation*}
-
+\vspace{-2cm}
+}
 \end{block}
 \end{column} % End of column 2.2
 \end{columns} % End of the split of column 2 - any content after this will now take up 2 columns width
@@ -212,35 +210,42 @@ f_{\psrA}(x) ~=~ f_{\psrA}(s_1 \cdots s_m) ~=~ \aone^\top \A_{s_1} \cdots \A_{s_
 
 As an example, a natural approach to build an M-PSR for timing $\Sigma=\{\sigma\}$, is to use powers of a fixed base $b$:
 
+{\large
 \begin{equation*}
 \Sigma' ~=~ \{\sigma,~\sigma^b,~ \sigma^{b^2},\ldots, \sigma^{b^K}\}
 \end{equation*}
+}
+\vspace{-1.5cm}
 
 For given observation string: $\sigma^t$, we compute $t = t_0 b^0 + t_1 b^1 + t_2 b^2 + \cdots + t_K b^K$ and then the encoding follows:
 
+
+{\large
 \begin{equation*}
 \kappa(\sigma^t) ~=~ (\sigma^{b^K})^{t_K}~ (\sigma^{b^{K-1}})^{t_{K-1}} \cdots (\sigma^b)^{t_1}~ (\sigma)^{t_0}
-\end{equation*}
+\end{equation*}}
 
 %, where $0 \leq t_k \leq b - 1$ for $0 \leq k \leq K$, and $t_K \geq 0$
-
+\vspace{-2cm}
 \end{block}
 
 \begin{block}{Data-Driven M-PSRs}
 
 %Experiments indicate that compact representations of transitions yield better predictions.
 
-For a general M-PSR we propose that $\kappa(x)$ be the encoding of minimal length. $\kappa(x)$ is computed by dynamic programming, giving the additional benefit that one can perform optimal state updates for online applications. 
-
-\begin{equation*}
-\kappa(x) ~= \argmin_{ z \in \Sigma^*, \; x=yz, \; |y|<|x|} |~\kappa(y)(z)| \enspace 
-\end{equation*}
+For a general M-PSR we propose that $\kappa(x)$ be the encoding of minimal length. $\kappa(x)$ is computed by dynamic programming, giving the additional benefit that one can perform optimal state updates for online applications.
+ 
+{
+\large \begin{equation*}
+\kappa(x) ~= \argmin_{ z \in \Sigma', \; x=yz, \; |y|<|x|} |\kappa(y)(z)| \enspace 
+\end{equation*}}
 
 With this choice of $\kappa$, we build $\Sigma'$ by iteratively selecting sub-strings from the training set:
 
-\begin{equation*}
+{
+\large \begin{equation*}
 \Sigma'_{i+1} ~=~ \argmin_{u \in \mathrm{sub}_M} ~\sum_{x \in \mathrm{train}} |\kappa_{\Sigma_i' \cup \{u\}}(x)| \enspace
-\end{equation*}
+\end{equation*}}
 
 % Is y supposed to be in \Sigma* here???
 %Above, $\partial$ is the decoding function for $\kappa$
@@ -298,7 +303,7 @@ M-PSRs offer large improvements over traditional PSRs when using smaller model s
 
 \begin{itemize}
   \item Applications: planning, physiological signal recordings, and financial time-series
-  \item Further optimization of the encoding function: $\kappa$, and selection of transition operators: $\Sigma'$
+  \item Further optimization of the encoding function $\kappa$ and selection of transition sequences $\Sigma'$
   \item Theoretical analysis of M-PSRs
 \end{itemize}
 
